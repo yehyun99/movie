@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "movie_ref.h"
-#include "linkedList_ref.h"
+#include "movie.h"
+#include "linkedList.h"
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
@@ -20,21 +20,23 @@ int main(int argc, char *argv[]) {
 	void *ndPtr; //void pointer for linked list node
 	
 	
+	
+	
 	//1. reading the movie.dat-----------------------------
 	//1.1 FILE open
-	
+	fp=fopen("movie","r");
 	//1.2 list generation (use function list_genList() )
 	list = list_genList();
 	
 	//1.3 read each movie data from the file and add it to the linked list
-	while ( /* read name, country, runtime and score*/ )
+	while ((input=fgetc(fp))!=EOF /* read name, country, runtime and score*/ )
 	{	
 		//generate a movie info instance(mvInfo) with function mv_genMvInfo()
 		list_addTail(mvInfo, list);
 	}
 
 	//1.4 FILE close
-	
+	fclose(fp);
 	//2. program start
 	while(exit_flag == 0) 
 	{
