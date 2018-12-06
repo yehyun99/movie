@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) {
 	//1. reading the movie.dat-----------------------------
 	
 	//1.1 FILE open
-	fp=fopen("movie","r");
+	fp=fopen("movie.dot","r");
 	//1.2 list generation (use function list_genList() )
 	list = list_genList();
 	
