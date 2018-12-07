@@ -29,9 +29,10 @@ int main(int argc, char *argv[]) {
 	list = list_genList();
 	
 	//1.3 read each movie data from the file and add it to the linked list
-	while ( fscanf(fp,"%s",name, country, runTime, score)!=EOF)/* read name, country, runtime and score*/ 
+	while ( fscanf(fp,"%s %s %d %f",name, country, runTime, score)!=EOF)/* read name, country, runtime and score*/ 
 	{	
-		printf("%s",mv_genMvInfo);
+		//mv_genMvInfo()//구조체 만들기, mvInfo 
+		//printf("%s",mv_genMvInfo);
 		//generate a movie info instance(mvInfo) with function mv_genMvInfo()
 		list_addTail(mvInfo, list);
 	}
@@ -88,6 +89,7 @@ int main(int argc, char *argv[]) {
 		}
 		
 		//2.2 printing operation by function pointer (list_repeatFunc() is called here)
+		list_repeatFunc(repFunc,arg,list);
 		//2.3 print number of movies
 	}
 	
