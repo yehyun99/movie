@@ -31,6 +31,7 @@ int main(int argc, char *argv[]) {
 	//1.3 read each movie data from the file and add it to the linked list
 	while ( fscanf(fp,"%s %s %d %f",name, country, runTime, score)!=EOF)/* read name, country, runtime and score*/ 
 	{	
+		
 		//mv_genMvInfo()//구조체 만들기, mvInfo 
 		//printf("%s",mv_genMvInfo);
 		//generate a movie info instance(mvInfo) with function mv_genMvInfo()
@@ -50,9 +51,9 @@ int main(int argc, char *argv[]) {
 		printf("4. search for specific score movies\n");
 		printf("5. exit\n");
 		
-		printf("---------------Menu---------------\n");	
+		printf("---------------Menu---------------\n\n");	
 		printf("--select an option:");
-		scanf("%d",option);
+		scanf("%d",&option);
 		
 		
 		switch(option)

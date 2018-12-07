@@ -23,7 +23,7 @@ void* mv_genMvInfo(char* name, float score, int runTime, char* country)
 	//ÀúÀå  
 	*mvPtr->madeIn=country;
 	*mvPtr->name=name;
-	mvPtr->runTime=runtime;
+	mvPtr->runTime=runTime;
 	mvPtr->score=score;
 	
 	
