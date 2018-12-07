@@ -35,6 +35,10 @@ int main(int argc, char *argv[]) {
 		//mv_genMvInfo()//구조체 만들기, mvInfo 
 		//printf("%s",mv_genMvInfo);
 		//generate a movie info instance(mvInfo) with function mv_genMvInfo()
+		//와플먹자아ㅏ와플와플 냠냠 와플여기서 찍어야해ㅐ 띵똥와플ㄹㄹ 
+		//mv_genMvInfo(name, );
+		
+		
 		list_addTail(mvInfo, list);
 	}
 
@@ -82,7 +86,7 @@ int main(int argc, char *argv[]) {
 				
 			case 4: //print movies with high score
 				repFunc = mv_printScore;
-				arg =
+				//arg =
 				break;
 				
 			case 5:

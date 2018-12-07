@@ -21,10 +21,10 @@ void* mv_genMvInfo(char* name, float score, int runTime, char* country)
 		return NULL;
 	}
 	//저장  
-	mvPtr->madeIn=strdup(country); 
-	mvPtr->name=name;
-	mvPtr->runTime=runTime;
+	strcpy(mvPtr->madeIn, country);
+	strcpy(mvPtr->name,name);
 	mvPtr->score=score;
+	mvPtr->runTime; 
 	//allocate memory and set the member variables
 	
 	return (void*)mvPtr;
@@ -46,6 +46,9 @@ void printMv(void* obj)
 
 int mv_printAll(void* obj, void* arg)
 {
+	
+	
+	
 	//걸러서 찍는다. 
 	//영화 정보 구조체를 조건에 맞게.  
 }
