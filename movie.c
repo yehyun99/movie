@@ -24,7 +24,7 @@ void* mv_genMvInfo(char* name, float score, int runTime, char* country)
 	strcpy(mvPtr->madeIn, country);
 	strcpy(mvPtr->name,name);
 	mvPtr->score=score;
-	mvPtr->runTime; 
+	mvPtr->runTime=runTime; 
 	//allocate memory and set the member variables
 	
 	return (void*)mvPtr;

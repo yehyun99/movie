@@ -35,11 +35,11 @@ int main(int argc, char *argv[]) {
 		//mv_genMvInfo()//±¸Á¶Ã¼ ¸¸µé±â, mvInfo 
 		//printf("%s",mv_genMvInfo);
 		//generate a movie info instance(mvInfo) with function mv_genMvInfo()
-		//¿ÍÇÃ¸ÔÀÚ¾Æ¤¿¿ÍÇÃ¿ÍÇÃ ³È³È ¿ÍÇÃ¿©±â¼­ Âï¾î¾ßÇØ¤À ¶ò¶Ë¿ÍÇÃ¤©¤© 
 		//mv_genMvInfo(name, );
 		
 		
 		list_addTail(mvInfo, list);
+		
 	}
 
 	//1.4 FILE close
@@ -79,14 +79,19 @@ int main(int argc, char *argv[]) {
 				break;
 				
 			case 3: //print movies with long runtime
-				
+				printf("\nlowest runtime:\n");
+				scanf("%s",&runTime);
+				printf("----------------------------------------\n");
 				repFunc = mv_printRunTime;
 				arg =runTime;
 				break;
 				
 			case 4: //print movies with high score
+				printf("\nlowest score:\n");
+				scanf("%s",&score);
+				printf("----------------------------------------\n");
 				repFunc = mv_printScore;
-				//arg =
+				arg =score;
 				break;
 				
 			case 5:
