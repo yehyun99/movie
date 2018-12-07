@@ -46,7 +46,8 @@ void printMv(void* obj)
 
 int mv_printAll(void* obj, void* arg)
 {
-	
+	//걸러서 찍는다. 
+	//영화 정보 구조체를 조건에 맞게.  
 }
 
 int mv_printScore(void* obj, void* arg)

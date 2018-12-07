@@ -67,15 +67,22 @@ int main(int argc, char *argv[]) {
 				break;
 				
 			case 2: //print movies of specific country
-
+				printf("\nselect a country:\n");
+				scanf("%s",&country);
+				printf("----------------------------------------\n");
+				repFunc = mv_printCountry;
+				arg = country;
 				break;
 				
 			case 3: //print movies with long runtime
-
+				
+				repFunc = mv_printRunTime;
+				arg =runTime;
 				break;
 				
 			case 4: //print movies with high score
-				
+				repFunc = mv_printScore;
+				arg =
 				break;
 				
 			case 5:
