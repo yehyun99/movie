@@ -31,7 +31,7 @@ int main(int argc, char *argv[]) {
 	//1.3 read each movie data from the file and add it to the linked list
 	while ( fscanf(fp,"%s %s %d %f",name, country, runTime, score)!=EOF)/* read name, country, runtime and score*/ 
 	{	
-		fputc()
+		fputc();
 		//mv_genMvInfo()//구조체 만들기, mvInfo 
 		//printf("%s",mv_genMvInfo);
 		//generate a movie info instance(mvInfo) with function mv_genMvInfo()
@@ -83,7 +83,7 @@ int main(int argc, char *argv[]) {
 				scanf("%d",&runTime);
 				printf("----------------------------------------\n");
 				repFunc = mv_printRunTime;
-				arg =runTime;
+				arg =&runTime;
 				break;
 				
 			case 4: //print movies with high score
@@ -91,7 +91,7 @@ int main(int argc, char *argv[]) {
 				scanf("%f",&score);
 				printf("----------------------------------------\n");
 				repFunc = mv_printScore;
-				arg =(int)score;
+				arg =&score;
 				break;
 				
 			case 5:
