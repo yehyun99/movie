@@ -21,14 +21,10 @@ void* mv_genMvInfo(char* name, float score, int runTime, char* country)
 		return NULL;
 	}
 	//ÀúÀå  
-	*mvPtr->madeIn=country;
-	*mvPtr->name=name;
+	mvPtr->madeIn=strdup(country); 
+	mvPtr->name=name;
 	mvPtr->runTime=runTime;
 	mvPtr->score=score;
-	
-	
-//	fread(name, 1, 100, fp);
- 
 	//allocate memory and set the member variables
 	
 	return (void*)mvPtr;
