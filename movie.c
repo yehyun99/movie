@@ -57,7 +57,7 @@ int mv_printAll(void* obj, void* arg)
 
 int mv_printScore(void* obj, void* arg)
 {
-	if()
+	
 }
 
 int mv_printRunTime(void* obj, void* arg)
@@ -67,7 +67,9 @@ int mv_printRunTime(void* obj, void* arg)
 
 int mv_printCountry(void* obj, void* arg)
 {
-	
+	if(arg=='Korea'){
+		printf("lol");
+	}
 }
 
 

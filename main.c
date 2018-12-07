@@ -31,7 +31,9 @@ int main(int argc, char *argv[]) {
 	//1.3 read each movie data from the file and add it to the linked list
 	while ( fscanf(fp,"%s %s %d %f",name, country, runTime, score)!=EOF)/* read name, country, runtime and score*/ 
 	{	
-		fputc();
+		
+		mvInfo=mv_genMvInfo(name, score, runTime, country);
+		
 		//mv_genMvInfo()//구조체 만들기, mvInfo 
 		//printf("%s",mv_genMvInfo);
 		//generate a movie info instance(mvInfo) with function mv_genMvInfo()
@@ -65,7 +67,6 @@ int main(int argc, char *argv[]) {
 			case 1: //print all the movies
 				printf("\nprinting all the movies in the list.....\n\n\n");
 				printf("----------------------------------------\n");
-				
 				repFunc = mv_printAll;
 				arg = NULL;
 				break;
