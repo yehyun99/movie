@@ -29,8 +29,9 @@ int main(int argc, char *argv[]) {
 	list = list_genList();
 	
 	//1.3 read each movie data from the file and add it to the linked list
-	while ( (input=fgetc(fp))!=EOF/* read name, country, runtime and score*/ )
+	while ( fscanf(fp,"%s",name, country, runTime, score)!=EOF)/* read name, country, runtime and score*/ 
 	{	
+		printf("%s",mv_genMvInfo);
 		//generate a movie info instance(mvInfo) with function mv_genMvInfo()
 		list_addTail(mvInfo, list);
 	}
@@ -41,6 +42,17 @@ int main(int argc, char *argv[]) {
 	while(exit_flag == 0)
 	{
 		//2.1 print menu message and get input option
+		printf("---------------Menu---------------\n");
+		printf("1. print all the movies\n");
+		printf("2. search for specific country movies\n");
+		printf("3. search for specific runtime movies\n");
+		printf("4. search for specific score movies\n");
+		printf("5. exit\n");
+		
+		printf("---------------Menu---------------\n");	
+		printf("--select an option:");
+		scanf("%d",option);
+		
 		
 		switch(option)
 		{
