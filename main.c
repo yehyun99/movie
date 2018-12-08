@@ -34,8 +34,8 @@ int main(int argc, char *argv[]) {
 	{	
 		
 		mvInfo=mv_genMvInfo(name, score, runTime, country);
-		fgets(name, sizeof(name), fp);
-		printf("%s\n",name);
+		
+		
 		//mv_genMvInfo()//구조체 만들기, mvInfo 
 		//printf("%s",mv_genMvInfo);
 		//generate a movie info instance(mvInfo) with function mv_genMvInfo()
