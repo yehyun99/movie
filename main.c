@@ -4,6 +4,7 @@
 #include "movie.h"
 #include "linkedList.h"
 
+
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
 int main(int argc, char *argv[]) {
@@ -20,7 +21,7 @@ int main(int argc, char *argv[]) {
 	int (*repFunc)(void* obj, void* arg); //function pointer for using list_repeatFunc() function
 	void *arg; //a void pointer for passing argument to repFunc
 	int cnt; //integer variable
-	
+	char buffer[100];
 	//1. reading the movie.dat-----------------------------
 	
 	//1.1 FILE open
@@ -33,7 +34,8 @@ int main(int argc, char *argv[]) {
 	{	
 		
 		mvInfo=mv_genMvInfo(name, score, runTime, country);
-		
+		fgets(name, sizeof(name), fp);
+		printf("%s\n",name);
 		//mv_genMvInfo()//구조체 만들기, mvInfo 
 		//printf("%s",mv_genMvInfo);
 		//generate a movie info instance(mvInfo) with function mv_genMvInfo()

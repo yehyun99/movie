@@ -21,7 +21,7 @@ void* mv_genMvInfo(char* name, float score, int runTime, char* country)
 		return NULL;
 	}
 	//ÀúÀå  
-	strcpy(mvPtr->madeIn, country);
+	strcpy(mvPtr->madeIn, country);			
 	strcpy(mvPtr->name,name);
 	mvPtr->score=score;
 	mvPtr->runTime=runTime; 
@@ -57,7 +57,8 @@ int mv_printAll(void* obj, void* arg)
 
 int mv_printScore(void* obj, void* arg)
 {
-	
+	printMv(obj);
+	arg=NULL;
 }
 
 int mv_printRunTime(void* obj, void* arg)
@@ -67,9 +68,10 @@ int mv_printRunTime(void* obj, void* arg)
 
 int mv_printCountry(void* obj, void* arg)
 {
-	if(arg=='Korea'){
+	/*if(arg=="Korea"){
 		printf("lol");
 	}
+	return;*/
 }
 
 
