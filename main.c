@@ -21,11 +21,11 @@ int main(int argc, char *argv[]) {
 	int (*repFunc)(void* obj, void* arg); //function pointer for using list_repeatFunc() function
 	void *arg; //a void pointer for passing argument to repFunc
 	int cnt; //integer variable
-	char buffer[100];
+
 	//1. reading the movie.dat-----------------------------
 	
 	//1.1 FILE open
-	fp=fopen("movie.dot","r");
+	fp=fopen("movie.dat","r");
 	//1.2 list generation (use function list_genList() )
 	list = list_genList();
 	
@@ -33,7 +33,7 @@ int main(int argc, char *argv[]) {
 	while ( fscanf(fp,"%s %s %d %f",name, country, runTime, score)!=EOF)/* read name, country, runtime and score*/ 
 	{	
 		
-		mvInfo=mv_genMvInfo(name, score, runTime, country);
+		void* mvInfo=mv_genMvInfo(name, score, runTime, country);
 		
 		
 		//mv_genMvInfo()//구조체 만들기, mvInfo 
@@ -109,7 +109,11 @@ int main(int argc, char *argv[]) {
 		}
 		
 		//2.2 printing operation by function pointer (list_repeatFunc() is called here)
-		list_repeatFunc(repFunc,arg,list);
+		cnt=list_repeatFunc(repFunc,arg,list);
+		printf("%d\n",cnt);
+		
+		
+		
 		//2.3 print number of movies
 	}
 	
