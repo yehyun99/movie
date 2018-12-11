@@ -289,7 +289,7 @@ int list_repeatFunc(int (*func)(void* obj, void* arg), void* arg, void* list)
 		listPtr = listPtr->next; //travel once
 		len += func(listPtr->obj, arg); //increase the length variable
 	}
-	
+
 	return len;
 	
 }

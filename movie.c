@@ -21,10 +21,12 @@ void* mv_genMvInfo(char* name, float score, int runTime, char* country)
 		return NULL;
 	}
 	//저장  
+	
 	strcpy(mvPtr->madeIn, country);			
 	strcpy(mvPtr->name,name);
 	mvPtr->score=score;
 	mvPtr->runTime=runTime; 
+	
 	//allocate memory and set the member variables
 	
 	return (void*)mvPtr;
@@ -45,10 +47,11 @@ void printMv(void* obj)
 }
 
 int mv_printAll(void* obj, void* arg)
-{
-
-	printMv(obj);
-	arg=NULL;
+{	
+	movInfo_t* mvPtr = (movInfo_t*)obj;
+	
+	printMv(mvPtr);
+	
 	return 1;
 	//걸러서 찍는다. 
 	//영화 정보 구조체를 조건에 맞게.  
@@ -56,16 +59,27 @@ int mv_printAll(void* obj, void* arg)
 
 int mv_printScore(void* obj, void* arg)
 {
+	
+	movInfo_t* mvPtr = (movInfo_t*)obj;
+	if(mvPtr->score>= *arg){
+	//printf("%d",mvPtr);
+	printMv(mvPtr);
+	}
+	return 1;
 	/*
 	return;*/
+	/*movInfo_t* mvPtr = (movInfo_t*)obj;
+	if(obj,arg==1){
 	
-	
+	printMv(mvPtr);
+	}
+	return 1;*/
 	
 }
 
 int mv_printRunTime(void* obj, void* arg)
 {
-	
+	movInfo_t* mvPtr = (movInfo_t*)obj;
 }
 
 int mv_printCountry(void* obj, void* arg)
@@ -74,6 +88,11 @@ int mv_printCountry(void* obj, void* arg)
 		printf("lol");
 	}
 	return;*/
+	//movInfo_t* mvPtr = (movInfo_t*)obj;
+	//if()
+	//strcmp
+	
+
 	
 	
 }

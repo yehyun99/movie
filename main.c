@@ -25,15 +25,16 @@ int main(int argc, char *argv[]) {
 	//1. reading the movie.dat-----------------------------
 	
 	//1.1 FILE open
-	fp=fopen("movie.dat","r");
+	fp = fopen("movie.dat","r");
+
 	//1.2 list generation (use function list_genList() )
 	list = list_genList();
 	
 	//1.3 read each movie data from the file and add it to the linked list
-	while ( fscanf(fp,"%s %s %d %f",name, country, runTime, score)!=EOF)/* read name, country, runtime and score*/ 
+	while ( fscanf(fp,"%s %s %d %f",name, country, &runTime, &score)!=EOF)/* read name, country, runtime and score*/ 
 	{	
 		
-		void* mvInfo=mv_genMvInfo(name, score, runTime, country);
+		mvInfo=mv_genMvInfo(name, score, runTime, country);
 		
 		
 		//mv_genMvInfo()//구조체 만들기, mvInfo 
@@ -94,6 +95,7 @@ int main(int argc, char *argv[]) {
 				scanf("%f",&score);
 				printf("----------------------------------------\n");
 				repFunc = mv_printScore;
+				
 				arg =&score;
 				break;
 				
@@ -109,12 +111,24 @@ int main(int argc, char *argv[]) {
 		}
 		
 		//2.2 printing operation by function pointer (list_repeatFunc() is called here)
+		/*while(cnt==0){
+		
 		cnt=list_repeatFunc(repFunc,arg,list);
 		printf("%d\n",cnt);
+		}*/
+	
+		list_repeatFunc(repFunc,arg,list);
+		//while(list==NULL){
 		
-		
-		
+		//printf("%d",list_repeatFunc(repFunc,arg,list));
+		//}
 		//2.3 print number of movies
+			cnt=list_repeatFunc(repFunc,arg,list);
+			if(exit_flag==1){
+				cnt=0;
+			}
+			printf("%d",cnt);
+		
 	}
 	
 	return 0;
