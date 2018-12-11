@@ -127,7 +127,7 @@ int main(int argc, char *argv[]) {
 			if(exit_flag==1){
 				cnt=0;
 			}
-			printf("%d",cnt);
+			printf("\n%d\n",cnt);
 		
 	}
 	

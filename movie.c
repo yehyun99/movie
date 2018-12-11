@@ -91,12 +91,13 @@ int mv_printCountry(void* obj, void* arg)
 	return;*/
 	movInfo_t* mvPtr = (movInfo_t*)obj;
 	//if()
-	if(strcmp(char* mvPtr->madeIn, *char *arg)==0){
-		printf("%d",mvPtr);
+	
+	if(!strcmp(mvPtr->madeIn, arg)){
+		printMv(mvPtr);
 	}
 	
 
-	return 1;
+	//return 1;
 	
 }
 
