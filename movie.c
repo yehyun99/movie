@@ -61,7 +61,7 @@ int mv_printScore(void* obj, void* arg)
 {
 	
 	movInfo_t* mvPtr = (movInfo_t*)obj;
-	if(mvPtr->score>= *arg){
+	/*if(mvPtr->score==  arg){
 	//printf("%d",mvPtr);
 	printMv(mvPtr);
 	}
@@ -80,6 +80,7 @@ int mv_printScore(void* obj, void* arg)
 int mv_printRunTime(void* obj, void* arg)
 {
 	movInfo_t* mvPtr = (movInfo_t*)obj;
+	
 }
 
 int mv_printCountry(void* obj, void* arg)
@@ -88,12 +89,14 @@ int mv_printCountry(void* obj, void* arg)
 		printf("lol");
 	}
 	return;*/
-	//movInfo_t* mvPtr = (movInfo_t*)obj;
+	movInfo_t* mvPtr = (movInfo_t*)obj;
 	//if()
-	//strcmp
+	if(strcmp(char* mvPtr->madeIn, *char *arg)==0){
+		printf("%d",mvPtr);
+	}
 	
 
-	
+	return 1;
 	
 }
 
