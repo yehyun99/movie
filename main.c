@@ -20,7 +20,7 @@ int main(int argc, char *argv[]) {
 	void *list, *mvInfo; //pointers for linked list and a specific structure instance for a movie data
 	int (*repFunc)(void* obj, void* arg); //function pointer for using list_repeatFunc() function
 	void *arg; //a void pointer for passing argument to repFunc
-	int cnt; //integer variable
+	int cnt=0; //integer variable
 
 	//1. reading the movie.dat-----------------------------
 	
@@ -45,14 +45,18 @@ int main(int argc, char *argv[]) {
 		
 		list_addTail(mvInfo, list);
 		
+		
+		
 	}
 
 	//1.4 FILE close
 	fclose(fp);
+	
 	//2. program start
 	while(exit_flag == 0)
 	{
 		//2.1 print menu message and get input option
+	
 		printf("---------------Menu---------------\n");
 		printf("1. print all the movies\n");
 		printf("2. search for specific country movies\n");
@@ -72,14 +76,16 @@ int main(int argc, char *argv[]) {
 				printf("----------------------------------------\n");
 				repFunc = mv_printAll;
 				arg = NULL;
+				
 				break;
 				
 			case 2: //print movies of specific country
 				printf("\nselect a country:");
 				scanf("%s",&country);
+				arg =country;
 				printf("----------------------------------------\n");
 				repFunc = mv_printCountry;
-				arg =country;
+			
 				break;
 				
 			case 3: //print movies with long runtime
@@ -116,17 +122,18 @@ int main(int argc, char *argv[]) {
 		cnt=list_repeatFunc(repFunc,arg,list);
 		printf("%d\n",cnt);
 		}*/
-	
-		list_repeatFunc(repFunc,arg,list);
 		//while(list==NULL){
 		
 		//printf("%d",list_repeatFunc(repFunc,arg,list));
 		//}
 		//2.3 print number of movies
+			cnt=0;
+		
 			cnt=list_repeatFunc(repFunc,arg,list);
-			if(exit_flag==1){
-				cnt=0;
-			}
+			
+			//if(exit_flag==1){
+			//	cnt=0;
+			//}
 			printf("\n%d\n",cnt);
 		
 	}

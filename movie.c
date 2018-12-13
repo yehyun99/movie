@@ -49,9 +49,8 @@ void printMv(void* obj)
 int mv_printAll(void* obj, void* arg)
 {	
 	movInfo_t* mvPtr = (movInfo_t*)obj;
-	
 	printMv(mvPtr);
-	
+	//int len=0;	
 	return 1;
 	//걸러서 찍는다. 
 	//영화 정보 구조체를 조건에 맞게.  
@@ -61,11 +60,13 @@ int mv_printScore(void* obj, void* arg)
 {
 	
 	movInfo_t* mvPtr = (movInfo_t*)obj;
-	/*if(mvPtr->score==  arg){
-	//printf("%d",mvPtr);
+	
+	if(mvPtr->score>=  *(float*)arg){
+	
 	printMv(mvPtr);
-	}
 	return 1;
+	}
+	return 0;
 	/*
 	return;*/
 	/*movInfo_t* mvPtr = (movInfo_t*)obj;
@@ -80,7 +81,11 @@ int mv_printScore(void* obj, void* arg)
 int mv_printRunTime(void* obj, void* arg)
 {
 	movInfo_t* mvPtr = (movInfo_t*)obj;
-	
+	if(mvPtr->runTime>= *(int*)arg){
+		printMv(mvPtr);
+		return 1;
+	}
+	return 0;
 }
 
 int mv_printCountry(void* obj, void* arg)
@@ -94,10 +99,11 @@ int mv_printCountry(void* obj, void* arg)
 	
 	if(!strcmp(mvPtr->madeIn, arg)){
 		printMv(mvPtr);
+		return 1;
 	}
 	
 
-	//return 1;
+	return 0;
 	
 }
 
