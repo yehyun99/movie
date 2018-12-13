@@ -118,13 +118,12 @@ int main(int argc, char *argv[]) {
 		
 		//2.2 printing operation by function pointer (list_repeatFunc() is called here)
 			cnt=0;		//cnt초기화  
-			//cnt=list_repeatFunc(repFunc,arg,list);		//리스트의 갯수를 cnt로  
+		//cnt=list_repeatFunc(repFunc,arg,list);		//리스트의 갯수를 cnt로  
 		//2.3 print number of movies
-		if(exit_flag==1){
+		if(exit_flag==1){		//프로그램 종료  
 				cnt=0;
 			}
-		else if(Again==1){
-			
+		else if(Again==1){		//프로그램 다시 시작 
 		}
 		else
 		{
