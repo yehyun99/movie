@@ -21,6 +21,7 @@ int main(int argc, char *argv[]) {
 	int (*repFunc)(void* obj, void* arg); //function pointer for using list_repeatFunc() function
 	void *arg; //a void pointer for passing argument to repFunc
 	int cnt=0; //integer variable
+	int Again;
 
 	//1. reading the movie.dat-----------------------------
 	
@@ -34,23 +35,22 @@ int main(int argc, char *argv[]) {
 	while ( fscanf(fp,"%s %s %d %f",name, country, &runTime, &score)!=EOF)/* read name, country, runtime and score*/ 
 	{	
 		
-		mvInfo=mv_genMvInfo(name, score, runTime, country);
-		
-		
-		//mv_genMvInfo()//구조체 만들기, mvInfo 
-		//printf("%s",mv_genMvInfo);
-		//generate a movie info instance(mvInfo) with function mv_genMvInfo()
-		//mv_genMvInfo(name, );
-		
-		
-		list_addTail(mvInfo, list);
-		
-		
-		
-	}
+		mvInfo=mv_genMvInfo(name, score, runTime, country);		//포인터에 넣기  
 
+		//mv_genMvInfo()//구조체 만들기, mvInfo 
+		//generate a movie info instance(mvInfo) with function mv_genMvInfo()
+		list_addTail(mvInfo, list);		//리스트 추가하기  
+			
+	}
+	
 	//1.4 FILE close
 	fclose(fp);
+	printf("Reading the data files...\n");		//데이터 여부 표시  
+	cnt=list_len(list);
+	if(cnt==0){
+		printf("can not read!\n");
+	}
+	printf("Read done! %d items are read\n\n\n\n",cnt);
 	
 	//2. program start
 	while(exit_flag == 0)
@@ -65,7 +65,7 @@ int main(int argc, char *argv[]) {
 		printf("5. exit\n");
 		
 		printf("---------------Menu---------------\n\n");	
-		printf("--select an option:");
+		printf("--select an option:");		//case로 넘어감  
 		scanf("%d",&option);
 		
 		
@@ -74,8 +74,8 @@ int main(int argc, char *argv[]) {
 			case 1: //print all the movies
 				printf("\nprinting all the movies in the list.....\n\n\n");
 				printf("----------------------------------------\n");
-				repFunc = mv_printAll;
-				arg = NULL;
+				repFunc = mv_printAll;		//list_repeatFunc() function 안에 값 
+				arg = NULL;			//입력값없음  
 				
 				break;
 				
@@ -101,41 +101,36 @@ int main(int argc, char *argv[]) {
 				scanf("%f",&score);
 				printf("----------------------------------------\n");
 				repFunc = mv_printScore;
-				
 				arg =&score;
 				break;
 				
 			case 5:
 				printf("\n\nBye!\n\n");
-				exit_flag = 1;
-				
+				exit_flag = 1;		//아예 프로그램 종료  
 				break;
+				
 				
 			default:
 				printf("wrong command! input again\n");
+				Again=1;
 				break;
 		}
 		
 		//2.2 printing operation by function pointer (list_repeatFunc() is called here)
-		/*while(cnt==0){
-		
-		cnt=list_repeatFunc(repFunc,arg,list);
-		printf("%d\n",cnt);
-		}*/
-		//while(list==NULL){
-		
-		//printf("%d",list_repeatFunc(repFunc,arg,list));
-		//}
+			cnt=0;		//cnt초기화  
+			//cnt=list_repeatFunc(repFunc,arg,list);		//리스트의 갯수를 cnt로  
 		//2.3 print number of movies
-			cnt=0;
-		
-			cnt=list_repeatFunc(repFunc,arg,list);
+		if(exit_flag==1){
+				cnt=0;
+			}
+		else if(Again==1){
 			
-			//if(exit_flag==1){
-			//	cnt=0;
-			//}
-			printf("\n%d\n",cnt);
-		
+		}
+		else
+		{
+		cnt=list_repeatFunc(repFunc,arg,list);		//리스트의 갯수를 cnt로  
+		printf("\n - totally %d movies are listed!\n",cnt);		//리스트 갯수 출력 
+		}
 	}
 	
 	return 0;

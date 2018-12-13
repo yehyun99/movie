@@ -21,7 +21,6 @@ void* mv_genMvInfo(char* name, float score, int runTime, char* country)
 		return NULL;
 	}
 	//저장  
-	
 	strcpy(mvPtr->madeIn, country);			
 	strcpy(mvPtr->name,name);
 	mvPtr->score=score;
@@ -32,79 +31,57 @@ void* mv_genMvInfo(char* name, float score, int runTime, char* country)
 	return (void*)mvPtr;
 }
 
-void printMv(void* obj)
+void printMv(void* obj)		 
 {
 	movInfo_t* mvPtr = (movInfo_t*)obj;
 	if (mvPtr == NULL)
 	{
 		printf("[ERROR] failed to print the movie Info! (object is NULL)\n");
 	}
-	
 	printf("Name : %s (%s)\n", mvPtr->name, mvPtr->madeIn);
 	printf("running time : %i, score : %f\n", mvPtr->runTime, mvPtr->score);
 	
 	return;
 }
 
-int mv_printAll(void* obj, void* arg)
+int mv_printAll(void* obj, void* arg)		//모든 영화 출력  
 {	
 	movInfo_t* mvPtr = (movInfo_t*)obj;
-	printMv(mvPtr);
-	//int len=0;	
-	return 1;
+	printMv(mvPtr);		//출력  	
+	return 1;			//갯수 추가  
+  
+}
 	//걸러서 찍는다. 
-	//영화 정보 구조체를 조건에 맞게.  
-}
-
-int mv_printScore(void* obj, void* arg)
+	//영화 정보 구조체를 조건에 맞게.
+int mv_printScore(void* obj, void* arg)		//입력 점수 이상 영화 출력  
 {
-	
 	movInfo_t* mvPtr = (movInfo_t*)obj;
-	
 	if(mvPtr->score>=  *(float*)arg){
-	
-	printMv(mvPtr);
-	return 1;
+	printMv(mvPtr);		//출력  
+	return 1;			//갯수 추가  
 	}
-	return 0;
-	/*
-	return;*/
-	/*movInfo_t* mvPtr = (movInfo_t*)obj;
-	if(obj,arg==1){
-	
-	printMv(mvPtr);
-	}
-	return 1;*/
-	
+	return 0;			//넘기기  
+
 }
 
-int mv_printRunTime(void* obj, void* arg)
+int mv_printRunTime(void* obj, void* arg)	//입력 런타임 이상 영화 출력  
 {
 	movInfo_t* mvPtr = (movInfo_t*)obj;
 	if(mvPtr->runTime>= *(int*)arg){
-		printMv(mvPtr);
-		return 1;
+		printMv(mvPtr);	//출력  
+		return 1;		//갯수 추가  
 	}
-	return 0;
+	return 0;			//넘기기  
 }
 
-int mv_printCountry(void* obj, void* arg)
+int mv_printCountry(void* obj, void* arg)	//입력 국가 영화 출력  
 {
-	/*if(arg,obj==1){
-		printf("lol");
-	}
-	return;*/
 	movInfo_t* mvPtr = (movInfo_t*)obj;
-	//if()
-	
 	if(!strcmp(mvPtr->madeIn, arg)){
-		printMv(mvPtr);
-		return 1;
+		printMv(mvPtr);	//출력  
+		return 1;		//갯수 추가  
 	}
-	
-
-	return 0;
-	
+	return 0;			//넘기기  
 }
 
 
